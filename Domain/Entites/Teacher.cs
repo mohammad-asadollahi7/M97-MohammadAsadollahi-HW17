@@ -1,5 +1,4 @@
-﻿
-namespace Domain;
+﻿namespace Domain.Entites;
 
 public class Teacher : BaseEntity
 {

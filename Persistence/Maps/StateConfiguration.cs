@@ -1,6 +1,7 @@
 ﻿
 
 using Domain;
+using Domain.Entites;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.Maps;

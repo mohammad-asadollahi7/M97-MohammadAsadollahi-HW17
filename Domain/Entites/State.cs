@@ -1,4 +1,4 @@
-﻿namespace Domain;
+﻿namespace Domain.Entites;
 
 public class State : BaseEntity
 {
