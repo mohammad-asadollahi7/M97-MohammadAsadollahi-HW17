@@ -1,0 +1,28 @@
+﻿@model List<Application.Dtos.CourseWithStudentCountDto>
+
+
+
+<h3>Courses:</h3>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Course Id</th>
+            <th>Name</th>
+            <th>Unit</th>
+            <th>Students count</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+            <tr>
+                <td>@course.CourseId</td>
+                <td>@course.Name</td>
+                <td>@course.Unit</td>
+                <td>@course.Count</td>
+            </tr>
+        }
+    </tbody>
+</table>
