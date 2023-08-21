@@ -7,4 +7,5 @@ namespace Application.IServices;
 public interface IStudentService
 {
     IEnumerable<StudentsWithCoursesDto> GetAllWithCourses();
+    IEnumerable<StudentsWithCoursesDto> GetAllWithTeachers();
 }

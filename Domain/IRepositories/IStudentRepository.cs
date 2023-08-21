@@ -5,5 +5,5 @@ namespace Domain.IRepositories;
 
 public interface IStudentRepository
 {
-    IQueryable<Student> GetAllWithCourses(); 
+    IQueryable<Student> GetAll();
 }

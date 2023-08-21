@@ -23,4 +23,11 @@ public class StudentController : Controller
         var students = _studentService.GetAllWithCourses();
         return View(students);
     }
+
+    [HttpGet]
+    public IActionResult GetAllWithTeachers()
+    {
+        var students = _studentService.GetAllWithTeachers();
+        return View(students);
+    }
 }

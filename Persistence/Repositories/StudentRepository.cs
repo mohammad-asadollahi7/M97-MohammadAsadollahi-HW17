@@ -1,5 +1,4 @@
-﻿
-using Domain.Entites;
+﻿using Domain.Entites;
 using Domain.IRepositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,8 +12,10 @@ public class StudentRepository : IStudentRepository
     {
         _context = context;
     }
-    public IQueryable<Student> GetAllWithCourses()
+
+    public IQueryable<Student> GetAll()
     {
-        return _context.Students.Include(c => c.Courses).AsQueryable();
+        return _context.Students.AsQueryable();
     }
+   
 }
