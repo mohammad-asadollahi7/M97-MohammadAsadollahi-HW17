@@ -1,5 +1,6 @@
 ﻿using Application.Dtos;
 using Application.IServices;
+using Domain.Entites;
 using Domain.IRepositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,12 @@ public class CourseService : ICourseService
     {
         _courseRepository = courseRepository;
     }
+
+    public IEnumerable<Course> GetAll()
+    {
+        return _courseRepository.GetAll();
+    }
+
     public IEnumerable<CourseWithStudentCountDto> GetAllWithStudentCounts()
     {
         var courses = _courseRepository.GetAll().Include(c => c.Students);

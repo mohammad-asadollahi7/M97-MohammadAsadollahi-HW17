@@ -8,4 +8,5 @@ public interface IStudentService
 {
     IEnumerable<StudentsWithCoursesDto> GetAllWithCourses();
     IEnumerable<StudentsWithCoursesDto> GetAllWithTeachers();
+
 }

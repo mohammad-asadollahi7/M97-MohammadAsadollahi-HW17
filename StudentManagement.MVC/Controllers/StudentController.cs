@@ -1,4 +1,5 @@
 ﻿using Application.IServices;
+using Domain.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace StudentManagement.MVC.Controllers;
@@ -29,5 +30,19 @@ public class StudentController : Controller
     {
         var students = _studentService.GetAllWithTeachers();
         return View(students);
+    }
+
+    [HttpGet]
+    public IActionResult GetAllWithExceptCourses([FromServices] ICourseService courseService)
+    {
+        var students = _studentService.GetAllWithCourses();
+        var allCourses = courseService.GetAll();
+
+        foreach (var student in students)
+        {
+             student.Courses = allCourses.Except(student.Courses);
+        }
+        return View(students);
+
     }
 }

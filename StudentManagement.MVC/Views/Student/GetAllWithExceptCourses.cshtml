@@ -1,0 +1,38 @@
+﻿
+@model List<Application.Dtos.StudentsWithCoursesDto>
+
+<h3>Students:</h3>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Student Id</th>
+            <th>Name</th>
+            <th>Family</th>
+            <th>Except courses</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.StudentId</td>
+                <td>@student.Name</td>
+                <td>@student.Family</td>
+                <td>
+                    @if (student.Courses != null)
+                    {
+                        @foreach (var course in @student.Courses)
+                        {
+                            @course.Name
+                            <br />
+                        }
+                    }
+                    else
+                        @null
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

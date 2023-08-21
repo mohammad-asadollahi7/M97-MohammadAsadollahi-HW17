@@ -20,4 +20,5 @@ public class CourseController : Controller
         var courses = _courseService.GetAllWithStudentCounts();
         return View(courses);   
     }
+
 }
