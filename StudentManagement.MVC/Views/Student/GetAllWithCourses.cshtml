@@ -1,24 +1,45 @@
-﻿
-@model IEnumerable<Domain.Entites.Student>
+﻿@model List<Application.Dtos.StudentsWithCoursesDto>
 
 <h2>Students:</h2>
 
 
-<tabel class="table table-striped">
+<table class="table table-striped">
     <thead>
         <tr>
+            <th>Student Id</th>
             <th>Name</th>
+            <th>Family</th>
+            <th>Father Name</th>
+            <th>Courses</th>
         </tr>
     </thead>
-
     <tbody>
-        @foreach(var student in Model)
+        @foreach (var student in Model)
         {
             <tr>
-                <td></td>
+                <td>@student.StudentId</td>
+                <td>@student.Name</td>
+                <td>@student.Family</td>
+                <td>@student.FatherName</td>
+                <td>
+                    @if (student.Courses != null)
+                    {
+                        @foreach (var course in @student.Courses)
+                        {
+                            @course.Name;
+                            <br />
+                        }
+                    }
+                    else
+                    {
+                        @null;
+                    }
+
+                </td>
+
             </tr>
         }
     </tbody>
 
 
-</tabel>
+</table>
