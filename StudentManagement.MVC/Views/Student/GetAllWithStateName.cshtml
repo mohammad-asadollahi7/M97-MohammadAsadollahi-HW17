@@ -1,0 +1,36 @@
+﻿@model IEnumerable<IGrouping<string, Application.Dtos.StudentWithStateDto>>
+
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>State</th>
+            <th>Students</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Key</td>
+                <td>
+                    @foreach (var stu in @student)
+                    {
+                           @stu.FullName
+                           <br/>
+                    }
+                </td>
+            </tr>
+
+
+
+        }
+        
+    </tbody>
+
+
+</table>
+
+

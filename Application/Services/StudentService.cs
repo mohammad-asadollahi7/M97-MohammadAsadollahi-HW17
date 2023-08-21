@@ -26,6 +26,21 @@ public class StudentService : IStudentService
         return MapToDto(students);
     }
 
+    public IEnumerable<IGrouping<string, StudentWithStateDto>> GetAllWithStateName()
+    {
+        var students = _studentRepository.GetAll();
+
+        if (students == null)
+            throw new Exception();
+
+        var studentsWithState = students.Select(s => new StudentWithStateDto()
+                                {
+                                    FullName = s.Name + " " + s.Family,
+                                    State = s.Address.State.Name
+                                }).GroupBy(s => s.State).ToList();
+        return studentsWithState;
+    }
+
     public IEnumerable<StudentsWithCoursesDto> GetAllWithTeachers()
     {
         var students = _studentRepository.GetAll().Include(c => c.Courses)

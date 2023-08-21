@@ -13,4 +13,6 @@ public class Address : BaseEntity
 
     [ForeignKey(nameof(State))]
     public int StateId { get; set; }
+    public State State { get; set; }
+
 }

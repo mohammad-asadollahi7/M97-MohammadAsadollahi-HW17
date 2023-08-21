@@ -45,4 +45,11 @@ public class StudentController : Controller
         return View(students);
 
     }
+
+    [HttpGet]
+    public IActionResult GetAllWithStateName()
+    {
+        var students = _studentService.GetAllWithStateName();
+        return View(students);
+    }
 }
